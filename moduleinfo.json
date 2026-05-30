@@ -1,0 +1,31 @@
+{
+    "name": "BX Template Check",
+    "archiveName": "bx-codemaster/bx-template-check",
+    "category": "productivity",
+    "developer": "Axel Benkert",
+    "developerWebsite": "https://www.bx-coding.de",
+    "website": "https://www.der-eisenhans.de",
+    "srcDir": "src",
+    "version": "auto",
+    "shortDescription": "Ein Verwaltungstool für Modified eCommerce Shops, das die Template-Überprüfung erleichtert.",
+    "description": "BX Template Check ist ein professionelles Verwaltungstool für Modified eCommerce Shopsofware, das die Template-Überprüfung erleichtert. Mit einer modernen Benutzeroberfläche können Sie Templates intuitiv überprüfen – die Integration wird automatisch aktiviert.",
+    "price": "free", 
+    "date": "2026-05-30 00:00:00",
+    "php": {
+      "version": "^7.4 || ^8.0"
+    },
+    "modifiedCompatibility": [
+      "3.0.1",
+      "3.0.2",
+      "3.1.0",
+      "3.1.1",
+      "3.1.2",
+      "3.1.3",
+      "3.1.4",
+      "3.1.5",
+      "3.1.6",
+      "3.2.0",
+      "3.2.1",
+      "3.3.0"
+    ]
+}

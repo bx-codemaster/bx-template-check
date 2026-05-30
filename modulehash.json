@@ -1,0 +1,25 @@
+{
+    "version": "0.2.0",
+    "scopes": {
+        "shop-root": {
+            "hashes": {
+                "/admin/bx_template_check.php": "59f01efaf24b41e7c34bcf33363bcfa6",
+                "/admin/images/icons/folder_closed.png": "f0c37aca20d33bd7e53c8ef75f7436ca",
+                "/admin/images/icons/folder_open.png": "a4991d19edcec15ce8485f166cc8aa24",
+                "/admin/images/icons/heading/bx_template_check.png": "202666db305d36ea5306b380fdd24280",
+                "/admin/includes/extra/css/bx_template_check.php": "0f31de96907e5e747e1448591c11756a",
+                "/admin/includes/extra/functions/bx_template_check.php": "aba1a079fa4202c6cd3615247c6e8ef8",
+                "/admin/includes/extra/javascript/bx_template_check.php": "8d0d96221ff9dcd1f74749ff084ee900",
+                "/admin/includes/extra/menu/bx_template_check.php": "f305aa4cade85ac2e10e49f8508aceef",
+                "/admin/includes/modules/system/bx_template_check.php": "7eee5f7ceedf70b0d6acaab54bcea0ff",
+                "/lang/english/extra/admin/bx_template_check.php": "6372830525517c8a114f50eb3109e99a",
+                "/lang/english/modules/system/bx_template_check.php": "17f9ba7daafb39366622716d8ccfa59c",
+                "/lang/german/extra/admin/bx_template_check.php": "5daa7571c1e89068c4e6183eec338d90",
+                "/lang/german/modules/system/bx_template_check.php": "f20cf70f4b330f7e7fee3f607abe1099"
+            }
+        },
+        "shop-vendor-mmlc": {
+            "hashes": []
+        }
+    }
+}
