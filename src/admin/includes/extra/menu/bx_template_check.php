@@ -29,8 +29,8 @@ if( defined("MODULE_BX_TEMPLATE_CHECK_STATUS") && 'true' === MODULE_BX_TEMPLATE_
 			break;
 	}
 
-	//BOX_HEADING_TOOLS = Name der box in der der neue Menueeintrag erscheinen soll
-	$add_contents[BOX_HEADING_BX_MODULES][] = array(
+	// BOX_HEADING_BX_MODULES = Name der box in der der neue Menueeintrag erscheinen soll
+	$add_contents[BOX_HEADING_TOOLS][] = array(
 		'admin_access_name' => 'bx_template_check',         //Eintrag fuer Adminrechte
 		'filename'          => 'bx_template_check.php',     //Dateiname der neuen Admindatei
 		'boxname'           => MENU_NAME_BX_TEMPLATE_CHECK, //Anzeigename im Menue
