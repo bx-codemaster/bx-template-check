@@ -40,9 +40,9 @@ class bx_template_check {
     // Keine Implementierung erforderlich
   }
 
-  public function display(): array {
-		return array();
-	}
+     public function display(): array {
+       return array('text' => '<div style="text-align: center;">'.xtc_button(BUTTON_SAVE).xtc_button_link(BUTTON_CANCEL, xtc_href_link(FILENAME_MODULE_EXPORT, 'set='.$_GET['set'].'&module='.$this->code))."</div>");
+     }
 
   public function check(): bool {
     if (!isset($this->_check)) {
@@ -68,7 +68,7 @@ class bx_template_check {
 																												set_function )
 																							 VALUES ( '', 
 																							          'MODULE_BX_TEMPLATE_CHECK_STATUS',
-																												'true', 
+																												'True', 
 																												'6', 
 																												'1', 
 																												now(), 
@@ -87,4 +87,78 @@ class bx_template_check {
     );
     return $key;
   }
+
+  public function custom(): void {
+    global $messageStack;
+
+    // Moduldateien dürfen erst entfernt werden, nachdem das Modul logisch
+    // aus dem System abgemeldet wurde.
+    if ($this->check()) {
+      $messageStack->add_session(MODULE_BX_TEMPLATE_CHECK_TEXT_UNINSTALL_FIRST, 'error');
+      return;
+    }
+
+    $delete = (isset($_GET['delete']) && $_GET['delete'] === 'true');
+
+    if ($delete !== true) {
+      return;
+    }
+
+    $result = true;
+      
+    // Diese Liste enthält die in der Live-Installation ausgerollten Dateien.
+    $dirs_and_files   = array();
+    $dirs_and_files[] = DIR_FS_CATALOG.DIR_ADMIN.'bx_template_check.php';
+    $dirs_and_files[] = DIR_FS_CATALOG.DIR_ADMIN.'includes/extra/css/bx_template_check.php';
+    $dirs_and_files[] = DIR_FS_CATALOG.DIR_ADMIN.'includes/extra/functions/bx_template_check.php';
+    $dirs_and_files[] = DIR_FS_CATALOG.DIR_ADMIN.'includes/extra/javascript/bx_template_check.php';
+    $dirs_and_files[] = DIR_FS_CATALOG.DIR_ADMIN.'includes/extra/menu/bx_template_check.php';
+    $dirs_and_files[] = DIR_FS_CATALOG.DIR_ADMIN.'images/icons/heading/bx_template_check.png';
+    $dirs_and_files[] = DIR_FS_CATALOG.DIR_ADMIN.'images/icons/folder_closed.png';
+    $dirs_and_files[] = DIR_FS_CATALOG.DIR_ADMIN.'images/icons/folder_open.png';
+    $dirs_and_files[] = DIR_FS_CATALOG.'lang/german/modules/system/bx_template_check.php';
+    $dirs_and_files[] = DIR_FS_CATALOG.'lang/english/modules/system/bx_template_check.php';
+    $dirs_and_files[] = DIR_FS_CATALOG.'lang/german/extra/admin/bx_template_check.php';
+    $dirs_and_files[] = DIR_FS_CATALOG.'lang/english/extra/admin/bx_template_check.php';
+      
+    // Dateien löschen
+    foreach ($dirs_and_files as $dir_or_file) {
+    if (!$this->rrmdir($dir_or_file)) {
+      $messageStack->add_session($dir_or_file.MODULE_BX_TEMPLATE_CHECK_TEXT_COULD_NOT_BE_DELETED, 'error');
+      $result = false;
+    }
+    }
+      
+    if ($result === true) {
+      $messageStack->add_session(MODULE_BX_TEMPLATE_CHECK_TEXT_SUCCSESSFULLY_REMOVED, 'success');
+      } else {
+      $messageStack->add_session(MODULE_BX_TEMPLATE_CHECK_TEXT_DELETE_FAILED, 'error');
+      }
+      
+    // Datei selbst löschen
+    unlink(DIR_FS_CATALOG.DIR_ADMIN.'includes/modules/system/bx_template_check.php');
+  }
+
+  private function rrmdir(string $dir): bool {
+    if (is_dir($dir)) {
+      $objects = scandir($dir);
+      foreach ($objects as $object) {
+        if ($object != "." && $object != "..") {
+          if (filetype($dir."/".$object) == "dir") {
+            $this->rrmdir($dir."/".$object);
+          } else {
+            unlink($dir."/".$object);
+          }
+        }
+      }
+      reset($objects);
+      rmdir($dir);
+      return true;
+    } elseif (is_file($dir)) {
+      unlink($dir);
+      return true;
+    }
+    return false;
+  }
+
 }

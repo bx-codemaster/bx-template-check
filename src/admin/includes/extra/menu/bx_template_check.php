@@ -18,7 +18,7 @@
 
 defined( '_VALID_XTC' ) or die( 'Direct Access to this location is not allowed.' );
 
-if( defined("MODULE_BX_TEMPLATE_CHECK_STATUS") && 'true' === MODULE_BX_TEMPLATE_CHECK_STATUS) {
+if( defined("MODULE_BX_TEMPLATE_CHECK_STATUS") && 'True' === MODULE_BX_TEMPLATE_CHECK_STATUS) {
 	//Sprachabhängiger Menüeintrag, kann für weitere Sprachen ergänzt werden
 	switch ($_SESSION['language_code']) {
 		case 'de':
@@ -29,8 +29,8 @@ if( defined("MODULE_BX_TEMPLATE_CHECK_STATUS") && 'true' === MODULE_BX_TEMPLATE_
 			break;
 	}
 
-	// BOX_HEADING_BX_MODULES = Name der box in der der neue Menueeintrag erscheinen soll
-	$add_contents[BOX_HEADING_TOOLS][] = array(
+	//BOX_HEADING_TOOLS = Name der box in der der neue Menueeintrag erscheinen soll
+	$add_contents[BOX_HEADING_BX_MODULES][] = array(
 		'admin_access_name' => 'bx_template_check',         //Eintrag fuer Adminrechte
 		'filename'          => 'bx_template_check.php',     //Dateiname der neuen Admindatei
 		'boxname'           => MENU_NAME_BX_TEMPLATE_CHECK, //Anzeigename im Menue

@@ -38,3 +38,7 @@ define('MODULE_BX_TEMPLATE_CHECK_STATUS_TITLE' , 'Status');
 define('MODULE_BX_TEMPLATE_CHECK_STATUS_DESC' , 'Modul aktivieren?');
 define('MODULE_BX_TEMPLATE_CHECK_CONFIG_ID_TITLE' , 'Konfigurations-ID');
 define('MODULE_BX_TEMPLATE_CHECK_CONFIG_ID_DESC' , 'Automatisch ermittelt.');
+define('MODULE_BX_TEMPLATE_CHECK_TEXT_UNINSTALL_FIRST', 'Bitte deinstallieren Sie das Modul zuerst über den Schalter "Entfernen".');
+define('MODULE_BX_TEMPLATE_CHECK_TEXT_COULD_NOT_BE_DELETED', ' konnte nicht gelöscht werden.');
+define('MODULE_BX_TEMPLATE_CHECK_TEXT_SUCCSESSFULLY_REMOVED', 'Alle Moduldateien wurden erfolgreich entfernt.');
+define('MODULE_BX_TEMPLATE_CHECK_TEXT_DELETE_FAILED', 'Nicht alle Moduldateien konnten gelöscht werden.');
